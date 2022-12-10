@@ -70,7 +70,7 @@ customer customers[MAX_CUSTOMERS];
 			d_customer->state = COMPLETE;
 			printf("%sOrder %d placed by customer %d has been processed.\n%s", red, d_customer->customer_idx, d_customer->customer_idx, white);
 		}
-```
+		```
 	- Customer is instantly rejected if the entire order was unserviceable, and exits the drive-thru.
 	- Else, the customer waits on the semaphore for each pizza in his order, so he can collect it.
 	- Once he has all pizzas, he leaves the drive-thru.
