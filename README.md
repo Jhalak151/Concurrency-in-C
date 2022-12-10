@@ -79,14 +79,14 @@ customer customers[MAX_CUSTOMERS];
 	- Performs a check for availability of special ingredients for a particular pizza.
 	- If ingredients are available, performs a check for availability of a chef with enough time to service this pizza.
 	- If a chef can't currently service this order, we wait conditionally on a variable called `chefAvailable`.
-```c
+		```c
 	if (!chef_acquired) {
 		pthread_mutex_lock(&cArr_lock);
 		pthread_cond_wait(&chefAvailable, &cArr_lock);
 		pthread_mutex_unlock(&cArr_lock);
 		goto CHEF_CHECK;
 	}
-```
+		```
 - 
 	- `chefAvailable` is signaled whenever a chef is freed up from a particular task.
 	- Once a chef is acquired, we create a thread with `chefRoutine()`.
